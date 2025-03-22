@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import posterPlacholder from "../../assets/movie-placeholder.png";
+import { Link } from "react-router-dom";
 
 export const MediaPoster = ({ media }) => {
   const imageUrl = `https://image.tmdb.org/t/p/original${media.poster_path}`;
@@ -19,6 +20,13 @@ export const MediaPoster = ({ media }) => {
         <p className=" text-xl text-white font-bold">
           {media.title || media.name || media.original_title}
         </p>
+
+        <Link
+          to={`/details/${media.id}`}
+          className=" bg-white w-fit px-8 py-2 rounded-sm font-medium"
+        >
+          Details
+        </Link>
       </motion.div>
     </div>
   );

@@ -10,6 +10,9 @@ import airingTodayTVShowsMockdata from "./mocksdata/tvShows/airingTodayTVShows.m
 import onTheAirTVShowsMockdata from "./mocksdata/tvShows/onTheAirTVShows.mockdata.js";
 import popularTVShowsMockdata from "./mocksdata/tvShows/popularTVShows.mockdata.js";
 import topRatedTVShowsMockdata from "./mocksdata/tvShows/topRatedTVShows.mockdata.js";
+import movieDetailsMockdata from "./mocksdata/movies/movieDetails.mockdata.js";
+import movieVideosMockdata from "./mocksdata/movies/movieVideos.mockdata.js";
+import movieImagesMockdata from "./mocksdata/movies/movieImages.mockdata.js";
 
 export const handlers = [
   http.get("https://api.themoviedb.org/3/trending/all/week", async () => {
@@ -77,6 +80,24 @@ export const handlers = [
       // return HttpResponse.text("Failed to fetch trending TV shows", { status: 404 });
     }
   ),
+
+  http.get("https://api.themoviedb.org/3/movie/934433", async () => {
+    await delay(3000);
+    return HttpResponse.json(movieDetailsMockdata);
+    // return HttpResponse.text("Failed to fetch trending TV shows", { status: 404 });
+  }),
+
+  http.get("https://api.themoviedb.org/3/movie/934433/images", async () => {
+    await delay(3000);
+    return HttpResponse.json(movieImagesMockdata);
+    // return HttpResponse.text("Failed to fetch trending TV shows", { status: 404 });
+  }),
+
+  http.get("https://api.themoviedb.org/3/movie/934433/videos", async () => {
+    await delay(3000);
+    return HttpResponse.json(movieVideosMockdata);
+    // return HttpResponse.text("Failed to fetch trending TV shows", { status: 404 });
+  }),
 
   http.get(
     "https://api.themoviedb.org/3/tv/airing_today",
